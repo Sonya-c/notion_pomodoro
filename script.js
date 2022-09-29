@@ -23,15 +23,16 @@ function toggle_pause() {
 }
 
 function next() {
-    count = count + 1;
     seconds = 0;
     minutes = 0;
-    pomodoro();
+    if (pause) pause = !pause;
 }
 
 function settings(event) {
     event.preventDefault();
-    
+    short_break = document.getElementById("short_break").value;
+    long_break = document.getElementById("long_break").value;
+    focus = document.getElementById("focus").value;
 }
 
 function pomodoro() {
@@ -69,11 +70,12 @@ function pomodoro() {
         seconds -= 1; // decresed the second
     }
 
+    count = count + 1;
+    
     // update the results
     document.getElementById("minutes").innerHTML = minutes;
     document.getElementById("seconds").innerHTML = seconds;
-
-    return (null);
+    
 }
 
 window.onload = () => {
