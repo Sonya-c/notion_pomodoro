@@ -5,16 +5,32 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pomodoro</title>
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-    <p id="msg">Focus</p>
-    <p id="minutes">00</p>
-    <p id="seconds">00</p>
+<body class="h-screen bg-gradient-to-r from-gray-900 to-gray-800 text-slate-50">
+    <header class="p-3 grid grid-cols-3 gap-4">
+        <div></div>
+        <h1 class="text-center text-lg font-bold">Pomodoro</h1>
+        <div class="relative">
+            <button class="absolute inset-y-0 right-0">Confi</button>
+        </div>
+    </header>
 
-    <button onclick="toggle_pause()" id="pause_btn">Pause</button>
-    <button onclick="next()">Next</button>
+    <main class="h-full grid gap-10 place-content-center place-items-center">
+        <p id="msg" class="text-5xl text-center">Focus</p>
 
-    <form>
+        <div class="grid grid-cols-2 gap-4 bg-red-500 rounded-[30%] p-[50px] pt-[70px]">
+            <p class="bg-red-400 p-5 rounded-[30px] text-9xl" id="minutes">00</p>
+            <p class="bg-red-400 p-5 rounded-[30px] text-9xl" id="seconds">00</p>
+        </div>
+        
+        <div class="w-1/2 grid grid-cols-2 gap-4 place-items-center">
+            <button class="bg-orange-400 rounded-[50%] text-2xl w-20 h-20" onclick="toggle_pause()" id="pause_btn">Pause</button>
+            <button class="bg-orange-400 rounded-[50%] text-2xl w-20 h-20" onclick="next()">Next</button>
+        </div>
+    </main>
+
+    <form class="invisible">
         <label for="short_break">Short Break</label>
         <input type="number" id="short_break" name="quantity" min="5" max="15" value="5">
         

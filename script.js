@@ -73,8 +73,8 @@ function pomodoro() {
     count = count + 1;
     
     // update the results
-    document.getElementById("minutes").innerHTML = minutes;
-    document.getElementById("seconds").innerHTML = seconds;
+    document.getElementById("minutes").innerHTML = (minutes < 10 ? "0" : "") + minutes;
+    document.getElementById("seconds").innerHTML = (seconds < 10 ? "0" : "") + seconds;
     
 }
 
