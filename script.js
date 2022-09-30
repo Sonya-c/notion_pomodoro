@@ -18,8 +18,11 @@ let count = 0;
 function toggle_pause() {
     pause = !pause;
 
-    if (pause) document.getElementById("pause_btn").innerHTML = "Play";
-    else document.getElementById("pause_btn").innerHTML = "Pausar";
+    if (pause) {
+        document.querySelector("#pause_btn img").src = "play.svg";
+    } else {
+        document.querySelector("#pause_btn img").src = "stop.svg";
+    }
 }
 
 function next() {
@@ -33,6 +36,13 @@ function settings(event) {
     short_break = document.getElementById("short_break").value;
     long_break = document.getElementById("long_break").value;
     focus = document.getElementById("focus").value;
+    document.getElementById("form-container").classList.add("hidden");
+    pause = false;
+}
+
+function open_settings() {
+    pause = true;
+    document.getElementById("form-container").classList.remove("hidden");
 }
 
 function pomodoro() {

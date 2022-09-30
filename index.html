@@ -7,44 +7,57 @@
     <title>Pomodoro</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="h-screen bg-gradient-to-r from-gray-900 to-gray-800 text-slate-50">
-    <header class="p-3 grid grid-cols-3 gap-4">
-        <div></div>
-        <h1 class="text-center text-lg font-bold">Pomodoro</h1>
-        <div class="relative">
-            <button class="absolute inset-y-0 right-0">Confi</button>
+<body class="relative text-4xl h-screen grid grid-rows-5 bg-gradient-to-r from-gray-900 to-gray-800 text-slate-50">
+    <header class="row-span-1 grid grid-cols-3 gap-4 place-content-center place-items-center">
+        <h1 class="col-span-2 text-center font-bold">Pomodoro</h1>
+        <div class="col-span-1">
+            <button onclick="open_settings()" class="min-w-[30px] text-white">
+                <img src="confi.svg" alt="configuration button" /> 
+            </button>
         </div>
     </header>
 
-    <main class="h-full grid gap-10 place-content-center place-items-center">
-        <p id="msg" class="text-5xl text-center">Focus</p>
+    <main class="grid gap-5 row-span-4 place-content-center place-items-center">
+        <p id="msg" class="text-center">Focus</p>
 
-        <div class="grid grid-cols-2 gap-4 bg-red-500 rounded-[30%] p-[50px] pt-[70px]">
-            <p class="bg-red-400 p-5 rounded-[30px] text-9xl" id="minutes">00</p>
-            <p class="bg-red-400 p-5 rounded-[30px] text-9xl" id="seconds">00</p>
+        <div class="grid grid-cols-2 gap-2 bg-red-500 rounded-full pl-[20px] pr-[20px] pb-[15px] pt-[25px]">
+            <p class="bg-red-400 p-3 rounded-[10px]" id="minutes">00</p>
+            <p class="bg-red-400 p-3 rounded-[10px]" id="seconds">00</p>
         </div>
         
-        <div class="w-1/2 grid grid-cols-2 gap-4 place-items-center">
-            <button class="bg-orange-400 rounded-[50%] text-2xl w-20 h-20" onclick="toggle_pause()" id="pause_btn">Pause</button>
-            <button class="bg-orange-400 rounded-[50%] text-2xl w-20 h-20" onclick="next()">Next</button>
+        <div class="w-2/3 grid grid-cols-2 gap-4 place-items-center">
+            <button class="bg-orange-400 rounded-[50%] w-10 h-10 p-2"
+                    onclick="toggle_pause()"
+                    id="pause_btn">
+                <img src="stop.svg" alt="stop" />
+            </button>
+            <button class="bg-orange-400 rounded-[50%] w-10 h-10 p-2"
+                    onclick="next()">
+                <img src="next.svg" alt="next" />
+            </button>
         </div>
     </main>
 
-    <form class="invisible">
-        <label for="short_break">Short Break</label>
-        <input type="number" id="short_break" name="quantity" min="5" max="15" value="5">
-        
-        
-        <label for="long_break">Long Break</label>
-        <input type="number" id="long_break" name="quantity" min="10" max="30" value="15" >
-        
-        
-        <label for="focus">focus</label>
-        <input type="number" id="focus" name="quantity" min="15" max="60" value="25">
-        
-        <button type="submit">Enviar</button>
+    <div id="form-container" class="absolute w-full h-full
+                bg-clip-padding backdrop-filter backdrop-blur-xl bg-opacity-60
+                grid place-content-center place-items-center hidden">
+    <form class="grid grid-rows-4 gap-5">
+        <label for="short_break">Short Break
+            <input class="text-center rounded text-slate-900" type="number" id="short_break" name="quantity" min="5" max="15" value="5"> 
+        </label>
+
+        <label for="long_break">Long Break
+            <input class="text-center rounded text-slate-900" type="number" id="long_break" name="quantity" min="10" max="30" value="15" >
+        </label>
+
+        <label for="focus">focus
+            <input class="text-center rounded text-slate-900" type="number" id="focus" name="quantity" min="15" max="60" value="25">
+        </label>
+
+        <button class="bg-orange-400 p-2 rounded text-slate-900 
+            font-bold drop-shadow-lg" type="submit">Enviar</button>
     </form>
-      
+    </div>
     <script src="script.js"></script>
 </body>
 </html>
